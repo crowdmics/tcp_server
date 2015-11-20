@@ -37,6 +37,10 @@ func (c *Client) listen() {
 	}
 }
 
+func (c *Client) Close() {
+	c.conn.Close()
+}
+
 func (c *Client) Send(message string) error {
 	_, err := c.conn.Write([]byte(message))
 	return err
